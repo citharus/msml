@@ -25,7 +25,7 @@ import re
 __all__: list[str] = [
     'PAGE_HEADING',
     'SECTION_HEADING',
-    'HEADING_3',
+    'SUB_SECTION_HEADING',
     'DESCRIPTION',
     'QUOTE',
     'HIGHLIGHT',
