@@ -47,16 +47,16 @@ HEADING_3: re.Pattern = re.compile(
 )
 
 DESCRIPTION: re.Pattern = re.compile(
-    rf'(?:#d\s*)(?P<text>[\w\.]+(?: +[\w\.]+)*)',
+    rf'(?:#d\s*){_text}',
     re.IGNORECASE,
 )
 
 QUOTE: re.Pattern = re.compile(
-    rf'(?:#q\s*)(?P<text>[\w\.]+(?: +[\w\.]+)*)',
+    rf'(?:#q\s*){_text}',
     re.IGNORECASE,
 )
 
 HIGHLIGHT: re.Pattern = re.compile(
-    rf'(?:#hl\s*)(?P<text>[\w\.]+(?: +[\w\.]+)*)(?:\s*hl#)',
+    rf'(?:#hl\s*){_text}(?:\s*hl#)',
     re.IGNORECASE,
 )
