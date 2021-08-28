@@ -22,3 +22,5 @@
 
 PAGE_HEADING: str = '<h1>{content}</h1>\n'
 SECTION_HEADING: str = '<h2>{content}</h2>\n'
+
+SECTION: str = '<section>\n\t{content}\n</section>\n'
