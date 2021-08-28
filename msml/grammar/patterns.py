@@ -22,7 +22,7 @@
 
 import re
 
-__all__: list[str] = ['HEADING_1', 'HEADING_2', 'HEADING_3']
+__all__: list[str] = ['HEADING_1', 'HEADING_2', 'HEADING_3', 'DESCRIPTION']
 
 _text: str = r'(?P<text>[\w\.]+(?: +[\w\.]+)*)'
 
@@ -36,5 +36,10 @@ HEADING_2: re.Pattern = re.compile(
 )
 HEADING_3: re.Pattern = re.compile(
     rf'(?:#h3\s*){_text}',
+    re.IGNORECASE,
+)
+
+DESCRIPTION: re.Pattern = re.compile(
+    rf'(?:#d\s*)(?P<text>[\w\.]+(?: +[\w\.]+)*)',
     re.IGNORECASE,
 )
