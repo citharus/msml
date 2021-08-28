@@ -24,7 +24,7 @@ import re
 
 __all__: list[str] = [
     'PAGE_HEADING',
-    'HEADING_2',
+    'SECTION_HEADING',
     'HEADING_3',
     'DESCRIPTION',
     'QUOTE',
@@ -39,8 +39,8 @@ PAGE_HEADING: re.Pattern = re.compile(
     rf'(?:#hp\s*){_text}',
     re.IGNORECASE,
 )
-HEADING_2: re.Pattern = re.compile(
-    rf'(?:#h2\s*){_text}',
+SECTION_HEADING: re.Pattern = re.compile(
+    rf'(?:#hs\s*){_text}',
     re.IGNORECASE,
 )
 HEADING_3: re.Pattern = re.compile(
