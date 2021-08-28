@@ -20,16 +20,6 @@
 #  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #  SOFTWARE.
 
-SECTION: str = '<section>\n\t{content}\n</section>\n'
-
-PAGE_HEADING: str = '<h1>{content}</h1>\n'
-SECTION_HEADING: str = '<h2>{content}</h2>\n'
-
-QUOTE: str = '<blockquote>\n\t{content}\n</blockquote>\n'
-HIGHLIGHT: str = '<hl>{content}</hl>'
-MATH: str = '<blockquote class="math">\n\t{content}\n</blockquote>\n'
-IMAGE: str = '<img src="{content}">\n'
-
 PAGE: str = '''<!DOCTYPE html>
 <html>
 <head>
@@ -43,7 +33,17 @@ PAGE: str = '''<!DOCTYPE html>
 </head>
 <body>
     {page_heading}
-    
+
     {sections}
 </body>
 </html>'''
+SECTION: str = '<section>\n\t{content}\n</section>\n'
+
+PAGE_HEADING: str = '<h1>{content}</h1>\n'
+SECTION_HEADING: str = '<h2>{content}</h2>\n'
+
+QUOTE: str = '<blockquote>\n\t{content}\n</blockquote>\n'
+HIGHLIGHT: str = '<hl>{content}</hl>'
+MATH: str = '<blockquote class="math">\n\t{content}\n</blockquote>\n'
+IMAGE: str = '<img src="{content}">\n'
+
