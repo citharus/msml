@@ -26,3 +26,4 @@ SECTION_HEADING: str = '<h2>{content}</h2>\n'
 SECTION: str = '<section>\n\t{content}\n</section>\n'
 
 QUOTE: str = '<blockquote>\n\t{content}\n</blockquote>\n'
+HIGHLIGHT: str = '<hl>{content}</hl>'
