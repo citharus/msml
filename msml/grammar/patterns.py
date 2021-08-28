@@ -43,8 +43,8 @@ SECTION_HEADING: re.Pattern = re.compile(
     rf'(?:#hs\s*){_text}',
     re.IGNORECASE,
 )
-HEADING_3: re.Pattern = re.compile(
-    rf'(?:#h3\s*){_text}',
+SUB_SECTION_HEADING: re.Pattern = re.compile(
+    rf'(?:#hss\s*){_text}',
     re.IGNORECASE,
 )
 
