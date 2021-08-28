@@ -21,3 +21,4 @@
 #  SOFTWARE.
 
 PAGE_HEADING: str = '<h1>{content}</h1>\n'
+SECTION_HEADING: str = '<h2>{content}</h2>\n'
