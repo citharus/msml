@@ -64,7 +64,7 @@ HIGHLIGHT: re.Pattern = re.compile(
 )
 
 MATH: re.Pattern = re.compile(
-    rf'(?:#m\s*)(?P<term>[ \w=/\.\(\)]+)',
+    rf'(?:#m\s*)(?P<term>[ \w=/.()]+)',
     re.IGNORECASE,
 )
 
