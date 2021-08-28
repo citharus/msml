@@ -22,9 +22,13 @@
 
 import re
 
-__all__: list[str] = ['HEADING_1']
+__all__: list[str] = ['HEADING_1', 'HEADING_2']
 
 HEADING_1: re.Pattern = re.compile(
     rf'(?:#h1\s*)(?P<text>[\w\.]+(?: +[\w\.]+)*)',
+    re.IGNORECASE,
+)
+HEADING_2: re.Pattern = re.compile(
+    rf'(?:#h2\s*)(?P<text>[\w\.]+(?: +[\w\.]+)*)',
     re.IGNORECASE,
 )
