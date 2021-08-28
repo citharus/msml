@@ -30,6 +30,7 @@ __all__: list[str] = [
     'QUOTE',
     'HIGHLIGHT',
     'MATH',
+    'IMAGE',
 ]
 
 _text: str = r'(?P<text>[\w\.]+(?: +[\w\.]+)*)'
@@ -64,5 +65,10 @@ HIGHLIGHT: re.Pattern = re.compile(
 
 MATH: re.Pattern = re.compile(
     rf'(?:#m\s*)(?P<term>[ \w=/\.\(\)]+)',
+    re.IGNORECASE,
+)
+
+IMAGE: re.Pattern = re.compile(
+    r'(?:#img\s*)(?P<source>[/\w]+\.(?:png|jpg|gif))(?:\s*)(?P<alt>\w+)',
     re.IGNORECASE,
 )
