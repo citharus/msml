@@ -29,6 +29,7 @@ __all__: list[str] = [
     'DESCRIPTION',
     'QUOTE',
     'HIGHLIGHT',
+    'MATH',
 ]
 
 _text: str = r'(?P<text>[\w\.]+(?: +[\w\.]+)*)'
@@ -58,5 +59,10 @@ QUOTE: re.Pattern = re.compile(
 
 HIGHLIGHT: re.Pattern = re.compile(
     rf'(?:#hl\s*){_text}(?:\s*hl#)',
+    re.IGNORECASE,
+)
+
+MATH: re.Pattern = re.compile(
+    rf'(?:#m\s*)(?P<term>[ \w=/\.\(\)]+)',
     re.IGNORECASE,
 )
