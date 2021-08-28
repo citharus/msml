@@ -25,7 +25,6 @@ import re
 __all__: list[str] = [
     'PAGE_HEADING',
     'SECTION_HEADING',
-    'DESCRIPTION',
     'QUOTE',
     'HIGHLIGHT',
     'MATH',
@@ -40,11 +39,6 @@ PAGE_HEADING: re.Pattern = re.compile(
 )
 SECTION_HEADING: re.Pattern = re.compile(
     rf'(?:#hs\s*){_text}',
-    re.IGNORECASE,
-)
-
-DESCRIPTION: re.Pattern = re.compile(
-    rf'(?:#d\s*){_text}',
     re.IGNORECASE,
 )
 
