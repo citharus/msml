@@ -29,3 +29,21 @@ QUOTE: str = '<blockquote>\n\t{content}\n</blockquote>\n'
 HIGHLIGHT: str = '<hl>{content}</hl>'
 MATH: str = '<blockquote class="math">\n\t{content}\n</blockquote>\n'
 IMAGE: str = '<img src="{content}">\n'
+
+PAGE: str = '''<!DOCTYPE html>
+<html>
+<head>
+    <title>{page_heading}</title>
+    <script>
+    MathJax = { loader: { load: [ "input/asciimath", "output/svg" ] } };
+    </script>
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3.1/es5/startup.js">
+    </script>
+</head>
+<body>
+    {page_heading}
+    
+    {sections}
+</body>
+</html>'''
