@@ -35,12 +35,12 @@ __all__: list[str] = ['Formatter']
 
 
 class Formatter:
-    def __init__(self, file_path: str, out_dir_name: str = 'out') -> None:
-        self.file_path: pathlib.Path = pathlib.Path(file_path)
+    def __init__(self, file: str, out_dir_name: str = 'out') -> None:
+        self.file: pathlib.Path = pathlib.Path(file)
         self.out_dir_name: pathlib.Path = pathlib.Path(out_dir_name)
 
     def format(self) -> str:
-        parser: Parser = Parser(self.file_path)
+        parser: Parser = Parser(self.file)
         page_heading, page_description = parser.get_info()
         sections: list[str] = parser.get_sections()
 
