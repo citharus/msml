@@ -24,6 +24,8 @@ from typing import Optional, Tuple
 
 from msml.elements import *
 
+__all__: list[str] = ['Parser']
+
 
 class Parser:
     def __init__(self, file_path: str) -> None:
