@@ -20,12 +20,28 @@
 #  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #  SOFTWARE.
 
+from typing import Optional, Tuple
+
 from msml.elements import *
 
 
 class Parser:
     def __init__(self, file_path: str) -> None:
         self.file_path: str = file_path
+
+    def get_info(self) -> Tuple[str, str]:
+        page_heading: Optional[str] = None
+        page_description: Optional[str] = None
+
+        with open(self.file_path, 'r') as file:
+            for line in file.readlines():
+                if page_heading and page_description:
+                    break
+                elif heading := PageHeading().match(line):
+                    page_heading: str = heading
+                elif description := PageDescription().match(line):
+                    page_description: str = description
+        return page_heading, page_description
 
     def get_sections(self) -> list[str]:
         sections: list[str] = []
