@@ -42,7 +42,7 @@ class Element:
 
 class Quote(Element):
     def __init__(self):
-        super().__init__(
+        super(Quote, self).__init__(
             r'(?:#q\s*)([\w.]+(?: +[\w.]+)*)',
             '<blockquote>\n\t{content}\n</blockquote>\n',
         )
