@@ -45,8 +45,8 @@ class Formatter:
         page_heading, page_description = parser.get_info()
         sections: list[str] = parser.get_sections()
 
-        with open('assets/template.html', 'r') as file:
-            html: str = file.read()
+        with open('assets/template.html', 'r') as template:
+            html: str = template.read()
             html = html.replace('{page_heading}', page_heading)
             html = html.replace('{sections}', '\n'.join(sections))
 
