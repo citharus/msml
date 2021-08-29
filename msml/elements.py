@@ -46,3 +46,11 @@ class Quote(Element):
             r'(?:#q\s*)([\w.]+(?: +[\w.]+)*)',
             '<blockquote>\n\t{content}\n</blockquote>\n',
         )
+
+
+class Highlight(Element):
+    def __init__(self):
+        super(Highlight, self).__init__(
+            '(?:#hl\s*)([\w.]+(?: +[\w.]+)*)(?:\s*hl#)',
+            '<hl>{content}</hl>',
+        )
