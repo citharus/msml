@@ -37,6 +37,11 @@ class Element:
         return None
 
 
+class SectionHeading(Element):
+    pattern = r'(?:#hs\s*)([\w.]+(?: +[\w.]+)*)'
+    replacement = '<h2>{content}</h2>'
+
+
 class Quote(Element):
     pattern = r'(?:#q\s*)([\w.]+(?: +[\w.]+)*)'
     replacement = '<blockquote>{content}</blockquote>\n'
