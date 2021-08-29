@@ -39,19 +39,19 @@ class Element:
 
 class Quote(Element):
     pattern = r'(?:#q\s*)([\w.]+(?: +[\w.]+)*)'
-    replacement = '\t<blockquote>\n\t\t{content}\n\t</blockquote>\n'
+    replacement = '<blockquote>{content}</blockquote>\n'
 
 
 class Highlight(Element):
     pattern = '(?:#hl\s*)([\w.]+(?: +[\w.]+)*)(?:\s*hl#)'
-    replacement = '\t<hl>{content}</hl>'
+    replacement = '<hl>{content}</hl>'
 
 
 class Math(Element):
     pattern = '(?:#m\s*)([ \w=/.()]+)'
-    replacement = '\t<blockquote class="math">\n\t\t{content}\n\t</blockquote>\n'
+    replacement = '<blockquote class="math">{content}</blockquote>\n'
 
 
 class Image(Element):
     pattern = '(?:#img\s*)([/\w]+\.(?:png|jpg|gif))'
-    replacement = '\t<img src="{content}">\n'
+    replacement = '<img src="{content}">\n'
