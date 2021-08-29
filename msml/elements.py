@@ -36,7 +36,7 @@ __all__: list[str] = [
 
 class Element:
     pattern: Optional[str] = None
-    replacement: Optional[str] = None
+    replacement: str = ''
 
     @classmethod
     def match(cls, string: str) -> Optional[str]:
