@@ -67,7 +67,7 @@ class Highlight(Element):
 
 class Math(Element):
     pattern: str = r'(?:#m\s*)([ \w=/.()]+)'
-    replacement: str = '<blockquote class="math">{content}</blockquote>\n'
+    replacement: str = '<blockquote class="math">`{content}`</blockquote>\n'
 
 
 class Image(Element):
