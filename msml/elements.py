@@ -96,4 +96,4 @@ HTML: str = """<!DOCTYPE html>
 {page_heading}
 {sections}
 </body>
-</html"""
+</html>"""
