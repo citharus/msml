@@ -28,6 +28,7 @@ except ModuleNotFoundError:
     bs4: bool = False
 
 import pathlib
+from os import mkdir
 
 from msml.parse import Parser
 
@@ -52,3 +53,11 @@ class Formatter:
         if bs4:
             return BeautifulSoup(html, features='html.parser').prettify()
         return html
+
+    def write(self):
+        if not self.out_dir.exists():
+            mkdir(str(self.out_dir))
+
+        with open(f'{self.out_dir}/{self.file.name}.html', 'w') as outfile:
+            html: str = self.format()
+            outfile.write(html)
