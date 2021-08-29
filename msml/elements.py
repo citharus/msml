@@ -23,7 +23,14 @@
 import re
 from typing import Optional
 
-__all__: list[str] = ['Quote', 'Highlight', 'Math', 'Image']
+__all__: list[str] = [
+    'PageHeading',
+    'SectionHeading',
+    'Quote',
+    'Highlight',
+    'Math',
+    'Image',
+]
 
 
 class Element:
