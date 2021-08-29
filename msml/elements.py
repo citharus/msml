@@ -76,5 +76,5 @@ class Image(Element):
 
 
 class LineBreak(Element):
-    pattern: str = r'\n'
+    pattern: str = r'(\n)'
     replacement: str = '<br>\n'
