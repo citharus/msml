@@ -38,30 +38,30 @@ class Element:
 
 
 class PageHeading(Element):
-    pattern = r'(?:#hp\s*)([\w.]+(?: +[\w.]+)*)'
-    replacement = '<h1>{content}</h1>\n'
+    pattern: str = r'(?:#hp\s*)([\w.]+(?: +[\w.]+)*)'
+    replacement: str = '<h1>{content}</h1>\n'
 
 
 class SectionHeading(Element):
-    pattern = r'(?:#hs\s*)([\w.]+(?: +[\w.]+)*)'
-    replacement = '<h2>{content}</h2>\n'
+    pattern: str = r'(?:#hs\s*)([\w.]+(?: +[\w.]+)*)'
+    replacement: str = '<h2>{content}</h2>\n'
 
 
 class Quote(Element):
-    pattern = r'(?:#q\s*)([\w.]+(?: +[\w.]+)*)'
-    replacement = '<blockquote>{content}</blockquote>\n'
+    pattern: str = r'(?:#q\s*)([\w.]+(?: +[\w.]+)*)'
+    replacement: str = '<blockquote>{content}</blockquote>\n'
 
 
 class Highlight(Element):
-    pattern = r'(?:#hl\s*)([\w.]+(?: +[\w.]+)*)(?:\s*hl#)'
-    replacement = '<hl>{content}</hl>'
+    pattern: str = r'(?:#hl\s*)([\w.]+(?: +[\w.]+)*)(?:\s*hl#)'
+    replacement: str = '<hl>{content}</hl>'
 
 
 class Math(Element):
-    pattern = r'(?:#m\s*)([ \w=/.()]+)'
-    replacement = '<blockquote class="math">{content}</blockquote>\n'
+    pattern: str = r'(?:#m\s*)([ \w=/.()]+)'
+    replacement: str = '<blockquote class="math">{content}</blockquote>\n'
 
 
 class Image(Element):
-    pattern = r'(?:#img\s*)([/\w]+\.(?:png|jpg|gif))'
-    replacement = '<img src="{content}">\n'
+    pattern: str = r'(?:#img\s*)([/\w]+\.(?:png|jpg|gif))'
+    replacement: str = '<img src="{content}">\n'
