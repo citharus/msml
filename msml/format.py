@@ -20,6 +20,8 @@
 #  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #  SOFTWARE.
 
+from bs4 import BeautifulSoup
+
 from msml.parse import Parser
 
 __all__: list[str] = ['Formatter']
@@ -39,4 +41,5 @@ class Formatter:
             html: str = file.read()
             html = html.replace('{page_heading}', page_heading)
             html = html.replace('{sections}', '\n'.join(sections))
-        return html
+
+        return BeautifulSoup(html, features='html.parser').prettify()
