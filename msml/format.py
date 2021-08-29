@@ -22,6 +22,8 @@
 
 from msml.parse import Parser
 
+__all__: list[str] = ['Formatter']
+
 
 class Formatter:
     def __init__(self, file_path: str, out_dir_name: str = 'out') -> None:
