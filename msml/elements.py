@@ -23,6 +23,8 @@
 import re
 from typing import Optional
 
+__all__: list[str] = ['Quote', 'Highlight', 'Math', 'Image']
+
 
 class Element:
     def __init__(self, pattern: str, replacement: str) -> None:
