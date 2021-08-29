@@ -20,5 +20,12 @@
 #  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #  SOFTWARE.
 
+__title__ = 'msml'
+__author__ = 'citharus'
+__license__ = 'MIT'
+__copyright__ = 'Copyright (c) 2021-present citharus'
+__link__ = 'https://github.com/citharus/msml'
+__version__ = '1.0.0'
+
 from .format import *
 from .parse import *
