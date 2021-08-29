@@ -38,4 +38,3 @@ class Formatter:
             html = html.replace('{page_heading}', page_heading)
             html = html.replace('{sections}', '\n'.join(sections))
         return html
-
