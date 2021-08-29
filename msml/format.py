@@ -20,7 +20,6 @@
 #  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #  SOFTWARE.
 
-from msml.elements import HTML
 from msml.parse import Parser
 
 
@@ -34,10 +33,9 @@ class Formatter:
         page_heading, page_description = parser.get_info()
         sections: list[str] = parser.get_sections()
 
-        return HTML.replace(
-            '{page_heading}',
-            page_heading,
-        ).replace(
-            '{sections}',
-            '\n'.join(sections)
-        )
+        with open('assets/template.html', 'r') as file:
+            html: str = file.read()
+            html = html.replace('{page_heading}', page_heading)
+            html = html.replace('{sections}', '\n'.join(sections))
+        return html
+
