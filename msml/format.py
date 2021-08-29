@@ -50,6 +50,9 @@ class Formatter:
             html = html.replace('{page_heading}', page_heading)
             html = html.replace('{sections}', '\n'.join(sections))
 
+            with open('assets/stylesheet.css', 'r') as stylesheet:
+                html = html.replace('{stylesheet}', stylesheet.read())
+
         if bs4:
             return BeautifulSoup(html, features='html.parser').prettify()
         return html
