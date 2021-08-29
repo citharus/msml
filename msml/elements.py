@@ -27,43 +27,31 @@ __all__: list[str] = ['Quote', 'Highlight', 'Math', 'Image']
 
 
 class Element:
-    def __init__(self, pattern: str, replacement: str) -> None:
-        self.pattern: str = pattern
-        self.replacement: str = replacement
+    pattern: str = None
+    replacement: str = None
 
-    def match(self, string: str) -> Optional[str]:
-        if match := re.match(self.pattern, string):
-            return self.replacement.replace('{content}', match.groups()[0])
+    @classmethod
+    def match(cls, string: str) -> Optional[str]:
+        if match := re.match(cls.pattern, string):
+            return cls.replacement.replace('{content}', match.groups()[0])
         return None
 
 
 class Quote(Element):
-    def __init__(self):
-        super(Quote, self).__init__(
-            r'(?:#q\s*)([\w.]+(?: +[\w.]+)*)',
-            '\t<blockquote>\n\t\t{content}\n\t</blockquote>\n',
-        )
+    pattern = r'(?:#q\s*)([\w.]+(?: +[\w.]+)*)'
+    replacement = '\t<blockquote>\n\t\t{content}\n\t</blockquote>\n'
 
 
 class Highlight(Element):
-    def __init__(self):
-        super(Highlight, self).__init__(
-            '(?:#hl\s*)([\w.]+(?: +[\w.]+)*)(?:\s*hl#)',
-            '\t<hl>{content}</hl>',
-        )
+    pattern = '(?:#hl\s*)([\w.]+(?: +[\w.]+)*)(?:\s*hl#)'
+    replacement = '\t<hl>{content}</hl>'
 
 
 class Math(Element):
-    def __init__(self):
-        super(Math, self).__init__(
-            '(?:#m\s*)([ \w=/.()]+)',
-            '\t<blockquote class="math">\n\t\t{content}\n\t</blockquote>\n',
-        )
+    pattern = '(?:#m\s*)([ \w=/.()]+)'
+    replacement = '\t<blockquote class="math">\n\t\t{content}\n\t</blockquote>\n'
 
 
 class Image(Element):
-    def __init__(self):
-        super(Image, self).__init__(
-            '(?:#img\s*)([/\w]+\.(?:png|jpg|gif))',
-            '\t<img src="{content}">\n',
-        )
+    pattern = '(?:#img\s*)([/\w]+\.(?:png|jpg|gif))'
+    replacement = '\t<img src="{content}">\n'
