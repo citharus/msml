@@ -52,7 +52,6 @@ class PageHeading(Element):
 
 class Description(Element):
     pattern: str = r'(?:#d\s*)([\w.]+(?: +[\w.]+)*)'
-    replacement: str = ''
 
 
 class SectionHeading(Element):
