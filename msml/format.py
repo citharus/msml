@@ -20,7 +20,11 @@
 #  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #  SOFTWARE.
 
-from bs4 import BeautifulSoup
+try:
+    from bs4 import BeautifulSoup
+    bs4: bool = True
+except ModuleNotFoundError:
+    bs4: bool = False
 
 from msml.parse import Parser
 
@@ -42,4 +46,6 @@ class Formatter:
             html = html.replace('{page_heading}', page_heading)
             html = html.replace('{sections}', '\n'.join(sections))
 
-        return BeautifulSoup(html, features='html.parser').prettify()
+        if bs4:
+            return BeautifulSoup(html, features='html.parser').prettify()
+        return html
