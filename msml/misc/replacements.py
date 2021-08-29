@@ -44,5 +44,5 @@ SECTION_HEADING: str = '<h2>{content}</h2>\n'
 
 QUOTE: str = '<blockquote>\n\t{content}\n</blockquote>\n'
 HIGHLIGHT: str = '<hl>{content}</hl>'
-MATH: str = '<blockquote class="math">\n\t{content}\n</blockquote>\n'
+MATH: str = '<blockquote class="math">\n\t`{content}`\n</blockquote>\n'
 IMAGE: str = '<img src="{content}">\n'
