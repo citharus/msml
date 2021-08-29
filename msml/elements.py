@@ -62,3 +62,11 @@ class Math(Element):
             '(?:#m\s*)([ \w=/.()]+)',
             '<blockquote class="math">\n\t{content}\n</blockquote>\n',
         )
+
+
+class Image(Element):
+    def __init__(self):
+        super(Image, self).__init__(
+            '(?:#img\s*)([/\w]+\.(?:png|jpg|gif))',
+            '<img src="{content}">\n',
+        )
