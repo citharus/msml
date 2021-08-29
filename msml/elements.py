@@ -39,7 +39,7 @@ class Element:
         return False
 
     def replace(self) -> str:
-        return self.replacement.replace('content', self.content)
+        return self.replacement.replace('{content}', self.content)
 
 
 class Quote(Element):
