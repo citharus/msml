@@ -48,7 +48,7 @@ class Element:
 
 class PageHeading(Element):
     pattern: str = r'(?:#hp\s*)([\w.]+(?: +[\w.]+)*)'
-    replacement: str = '<h1>{content}</h1>\n'
+    replacement: str = '<h1>{content}</h1>'
 
 
 class PageDescription(Element):
@@ -57,12 +57,12 @@ class PageDescription(Element):
 
 class SectionHeading(Element):
     pattern: str = r'(?:#hs\s*)([\w.]+(?: +[\w.]+)*)'
-    replacement: str = '<h2>{content}</h2>\n'
+    replacement: str = '<h2>{content}</h2>'
 
 
 class Quote(Element):
     pattern: str = r'(?:#q\s*)([\w.]+(?: +[\w.]+)*)'
-    replacement: str = '<blockquote>{content}</blockquote>\n'
+    replacement: str = '<blockquote>{content}</blockquote>'
 
 
 class Highlight(Element):
@@ -72,14 +72,14 @@ class Highlight(Element):
 
 class Math(Element):
     pattern: str = r'(?:#m\s*)([ \w=/.()]+)'
-    replacement: str = '<blockquote class="math">`{content}`</blockquote>\n'
+    replacement: str = '<blockquote class="math">`{content}`</blockquote>'
 
 
 class Image(Element):
     pattern: str = r'(?:#img\s*)([/\w]+\.(?:png|jpg|gif))'
-    replacement: str = '<img src="{content}">\n'
+    replacement: str = '<img src="{content}">'
 
 
 class LineBreak(Element):
     pattern: str = r'(\n)'
-    replacement: str = '<br>\n'
+    replacement: str = '<br>'
