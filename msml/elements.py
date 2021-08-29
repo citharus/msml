@@ -37,6 +37,11 @@ class Element:
         return None
 
 
+class PageHeading(Element):
+    pattern = r'(?:#hp\s*)([\w.]+(?: +[\w.]+)*)'
+    replacement = '<h1>{content}</h1>\n'
+
+
 class SectionHeading(Element):
     pattern = r'(?:#hs\s*)([\w.]+(?: +[\w.]+)*)'
     replacement = '<h2>{content}</h2>\n'
