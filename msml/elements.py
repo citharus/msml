@@ -39,7 +39,7 @@ class Element:
 
 class SectionHeading(Element):
     pattern = r'(?:#hs\s*)([\w.]+(?: +[\w.]+)*)'
-    replacement = '<h2>{content}</h2>'
+    replacement = '<h2>{content}</h2>\n'
 
 
 class Quote(Element):
