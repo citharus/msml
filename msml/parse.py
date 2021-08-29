@@ -29,11 +29,11 @@ __all__: list[str] = ['Parser']
 
 
 class Parser:
-    def __init__(self, file_path: Union[Path, str]) -> None:
-        self.file_path: str = file_path
+    def __init__(self, file: Union[Path, str]) -> None:
+        self.file: str = file
 
     def __file_lines(self) -> list[str]:
-        with open(self.file_path, 'r') as file:
+        with open(self.file, 'r') as file:
             return file.readlines()
 
     def get_info(self) -> Tuple[str, str]:
