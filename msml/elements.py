@@ -46,7 +46,7 @@ class Quote(Element):
     def __init__(self):
         super(Quote, self).__init__(
             r'(?:#q\s*)([\w.]+(?: +[\w.]+)*)',
-            '<blockquote>\n\t{content}\n</blockquote>\n',
+            '\t<blockquote>\n\t{content}\n</blockquote>\n',
         )
 
 
@@ -54,7 +54,7 @@ class Highlight(Element):
     def __init__(self):
         super(Highlight, self).__init__(
             '(?:#hl\s*)([\w.]+(?: +[\w.]+)*)(?:\s*hl#)',
-            '<hl>{content}</hl>',
+            '\t<hl>{content}</hl>',
         )
 
 
@@ -62,7 +62,7 @@ class Math(Element):
     def __init__(self):
         super(Math, self).__init__(
             '(?:#m\s*)([ \w=/.()]+)',
-            '<blockquote class="math">\n\t{content}\n</blockquote>\n',
+            '\t<blockquote class="math">\n\t{content}\n</blockquote>\n',
         )
 
 
@@ -70,5 +70,5 @@ class Image(Element):
     def __init__(self):
         super(Image, self).__init__(
             '(?:#img\s*)([/\w]+\.(?:png|jpg|gif))',
-            '<img src="{content}">\n',
+            '\t<img src="{content}">\n',
         )
