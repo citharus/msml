@@ -72,6 +72,6 @@ class Parser:
                     sections[-1] += line
 
         for index, section in enumerate(sections):
-            sections[index] = f'<section>\n{section}</section>'
+            sections[index] = f'<section>{section}</section>'
 
         return sections
