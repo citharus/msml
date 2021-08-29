@@ -35,9 +35,9 @@ __all__: list[str] = ['Formatter']
 
 
 class Formatter:
-    def __init__(self, file: str, out_dir_name: str = 'out') -> None:
+    def __init__(self, file: str, out_dir: str = 'out') -> None:
         self.file: pathlib.Path = pathlib.Path(file)
-        self.out_dir_name: pathlib.Path = pathlib.Path(out_dir_name)
+        self.out_dir: pathlib.Path = pathlib.Path(out_dir)
 
     def format(self) -> str:
         parser: Parser = Parser(self.file)
