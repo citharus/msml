@@ -46,6 +46,7 @@ class Parser:
                 page_heading: str = heading
             elif description := PageDescription().match(line):
                 page_description: str = description
+
         return page_heading, page_description
 
     def get_sections(self) -> list[str]:
