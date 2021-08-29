@@ -20,7 +20,8 @@
 #  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #  SOFTWARE.
 
-from typing import Optional, Tuple
+from pathlib import Path
+from typing import Optional, Union, Tuple
 
 from msml.elements import *
 
@@ -28,7 +29,7 @@ __all__: list[str] = ['Parser']
 
 
 class Parser:
-    def __init__(self, file_path: str) -> None:
+    def __init__(self, file_path: Union[Path, str]) -> None:
         self.file_path: str = file_path
 
     def __file_lines(self) -> list[str]:
