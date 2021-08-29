@@ -30,6 +30,7 @@ __all__: list[str] = [
     'Highlight',
     'Math',
     'Image',
+    'LineBreak',
 ]
 
 
@@ -72,3 +73,8 @@ class Math(Element):
 class Image(Element):
     pattern: str = r'(?:#img\s*)([/\w]+\.(?:png|jpg|gif))'
     replacement: str = '<img src="{content}">\n'
+
+
+class LineBreak(Element):
+    pattern: str = r'\n'
+    replacement: str = '<br>'
