@@ -54,3 +54,11 @@ class Highlight(Element):
             '(?:#hl\s*)([\w.]+(?: +[\w.]+)*)(?:\s*hl#)',
             '<hl>{content}</hl>',
         )
+
+
+class Math(Element):
+    def __init__(self):
+        super(Math, self).__init__(
+            '(?:#m\s*)([ \w=/.()]+)',
+            '<blockquote class="math">\n\t{content}\n</blockquote>\n',
+        )
