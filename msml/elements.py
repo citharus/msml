@@ -93,7 +93,7 @@ HTML: str = """<!DOCTYPE html>
 <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1/es5/startup.js"></script>
 </head>
 <body>
-{page_title}
+{page_heading}
 {sections}
 </body>
 </html"""
