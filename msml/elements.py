@@ -38,7 +38,7 @@ class Element:
     replacement: Optional[str] = None
 
     @classmethod
-    def __call__(cls, string: str) -> Optional[str]:
+    def match(cls, string: str) -> Optional[str]:
         if match := re.match(cls.pattern, string):
             return cls.replacement.replace('{content}', match.groups()[0])
         return None
