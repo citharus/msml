@@ -22,9 +22,12 @@
 
 try:
     from bs4 import BeautifulSoup
+
     bs4: bool = True
 except ModuleNotFoundError:
     bs4: bool = False
+
+import pathlib
 
 from msml.parse import Parser
 
@@ -33,8 +36,8 @@ __all__: list[str] = ['Formatter']
 
 class Formatter:
     def __init__(self, file_path: str, out_dir_name: str = 'out') -> None:
-        self.file_path: str = file_path
-        self.out_dir_name: str = out_dir_name
+        self.file_path: pathlib.Path = pathlib.Path(file_path)
+        self.out_dir_name: pathlib.Path = pathlib.Path(out_dir_name)
 
     def format(self) -> str:
         parser: Parser = Parser(self.file_path)
