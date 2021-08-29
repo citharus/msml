@@ -67,7 +67,7 @@ class Quote(Element):
 
 class Highlight(Element):
     pattern: str = r'(?:#hl\s*)([\w.]+(?: +[\w.]+)*)(?:\s*hl#)'
-    replacement: str = '<hl>{content}</hl>'
+    replacement: str = '<q>{content}</q>'
 
 
 class Math(Element):
