@@ -46,7 +46,7 @@ class Quote(Element):
     def __init__(self):
         super(Quote, self).__init__(
             r'(?:#q\s*)([\w.]+(?: +[\w.]+)*)',
-            '\t<blockquote>\n\t{content}\n</blockquote>\n',
+            '\t<blockquote>\n\t\t{content}\n\t</blockquote>\n',
         )
 
 
@@ -62,7 +62,7 @@ class Math(Element):
     def __init__(self):
         super(Math, self).__init__(
             '(?:#m\s*)([ \w=/.()]+)',
-            '\t<blockquote class="math">\n\t{content}\n</blockquote>\n',
+            '\t<blockquote class="math">\n\t\t{content}\n\t</blockquote>\n',
         )
 
 
