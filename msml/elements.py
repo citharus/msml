@@ -32,7 +32,7 @@ __all__: list[str] = [
     'Math',
     'Image',
     'LineBreak',
-    'HtmlHEAD',
+    'HTML',
 ]
 
 
@@ -86,8 +86,14 @@ class LineBreak(Element):
     replacement: str = '<br>\n'
 
 
-HtmlHEAD: str = """<head>
+HTML: str = """<!DOCTYPE html>
+<html>
+<head>
 <title>{page_title}</title>
 <script>MathJax={loader:{load:["input/asciimath","output/svg"]}};</script>
 <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1/es5/startup.js"></script>
-</head>"""
+</head>
+<body>
+{sections}
+</body>
+</html"""
