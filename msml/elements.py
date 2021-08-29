@@ -30,16 +30,11 @@ class Element:
     def __init__(self, pattern: str, replacement: str) -> None:
         self.pattern: str = pattern
         self.replacement: str = replacement
-        self.content: Optional[str] = None
 
-    def match(self, string: str) -> bool:
+    def match(self, string: str) -> Optional[str]:
         if match := re.match(self.pattern, string):
-            self.content: str = match.groups()[0]
-            return True
-        return False
-
-    def replace(self) -> str:
-        return self.replacement.replace('{content}', self.content)
+            return self.replacement.replace('{content}', match.groups()[0])
+        return None
 
 
 class Quote(Element):
