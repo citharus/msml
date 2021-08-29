@@ -25,6 +25,7 @@ from typing import Optional
 
 __all__: list[str] = [
     'PageHeading',
+    'Description',
     'SectionHeading',
     'Quote',
     'Highlight',
