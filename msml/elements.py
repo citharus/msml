@@ -48,15 +48,15 @@ class Quote(Element):
 
 
 class Highlight(Element):
-    pattern = '(?:#hl\s*)([\w.]+(?: +[\w.]+)*)(?:\s*hl#)'
+    pattern = r'(?:#hl\s*)([\w.]+(?: +[\w.]+)*)(?:\s*hl#)'
     replacement = '<hl>{content}</hl>'
 
 
 class Math(Element):
-    pattern = '(?:#m\s*)([ \w=/.()]+)'
+    pattern = r'(?:#m\s*)([ \w=/.()]+)'
     replacement = '<blockquote class="math">{content}</blockquote>\n'
 
 
 class Image(Element):
-    pattern = '(?:#img\s*)([/\w]+\.(?:png|jpg|gif))'
+    pattern = r'(?:#img\s*)([/\w]+\.(?:png|jpg|gif))'
     replacement = '<img src="{content}">\n'
