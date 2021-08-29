@@ -68,4 +68,8 @@ class Parser:
             else:
                 if sections:
                     sections[-1] += line
+
+        for index, section in enumerate(sections):
+            sections[index] = f'<section>\n{section}</section>\n'
+
         return sections
