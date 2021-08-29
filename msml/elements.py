@@ -25,7 +25,7 @@ from typing import Optional
 
 __all__: list[str] = [
     'PageHeading',
-    'Description',
+    'PageDescription',
     'SectionHeading',
     'Quote',
     'Highlight',
@@ -51,7 +51,7 @@ class PageHeading(Element):
     replacement: str = '<h1>{content}</h1>\n'
 
 
-class Description(Element):
+class PageDescription(Element):
     pattern: str = r'(?:#d\s*)([\w.]+(?: +[\w.]+)*)'
 
 
