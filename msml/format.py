@@ -29,7 +29,7 @@ class Formatter:
         self.file_path: str = file_path
         self.out_dir_name: str = out_dir_name
 
-    def __make_html(self) -> str:
+    def format(self) -> str:
         parser: Parser = Parser(self.file_path)
         page_heading, page_description = parser.get_info()
         sections: list[str] = parser.get_sections()
