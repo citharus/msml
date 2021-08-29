@@ -50,6 +50,11 @@ class PageHeading(Element):
     replacement: str = '<h1>{content}</h1>\n'
 
 
+class Description(Element):
+    pattern: str = r'(?:#d\s*)([\w.]+(?: +[\w.]+)*)'
+    replacement: str = ''
+
+
 class SectionHeading(Element):
     pattern: str = r'(?:#hs\s*)([\w.]+(?: +[\w.]+)*)'
     replacement: str = '<h2>{content}</h2>\n'
