@@ -20,8 +20,32 @@
 #  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #  SOFTWARE.
 
+from msml.elements import *
+
 
 class Parser:
     def __init__(self, file_path: str) -> None:
         self.file_path: str = file_path
 
+    def get_sections(self) -> list[str]:
+        sections: list[str] = []
+
+        with open(self.file_path, 'r') as file:
+            for line in file.readlines():
+                if section := SectionHeading().match(line):
+                    sections.append(section)
+                elif quote := Quote().match(line):
+                    sections[-1] += quote
+                elif highlight := Highlight().match(line):
+                    sections[-1] += highlight
+                elif math := Math().match(line):
+                    sections[-1] += math
+                elif image := Image().match(line):
+                    sections[-1] += image
+                elif linebreak := LineBreak().match(line):
+                    if sections:
+                        sections[-1] += linebreak
+                else:
+                    if sections:
+                        sections[-1] += line
+        return sections
