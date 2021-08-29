@@ -29,39 +29,41 @@ class Parser:
     def __init__(self, file_path: str) -> None:
         self.file_path: str = file_path
 
+    def __file_lines(self) -> list[str]:
+        with open(self.file_path, 'r') as file:
+            return file.readlines()
+
     def get_info(self) -> Tuple[str, str]:
         page_heading: Optional[str] = None
         page_description: Optional[str] = None
 
-        with open(self.file_path, 'r') as file:
-            for line in file.readlines():
-                if page_heading and page_description:
-                    break
-                elif heading := PageHeading().match(line):
-                    page_heading: str = heading
-                elif description := PageDescription().match(line):
-                    page_description: str = description
+        for line in self.__file_lines():
+            if page_heading and page_description:
+                break
+            elif heading := PageHeading().match(line):
+                page_heading: str = heading
+            elif description := PageDescription().match(line):
+                page_description: str = description
         return page_heading, page_description
 
     def get_sections(self) -> list[str]:
         sections: list[str] = []
 
-        with open(self.file_path, 'r') as file:
-            for line in file.readlines():
-                if section := SectionHeading().match(line):
-                    sections.append(section)
-                elif quote := Quote().match(line):
-                    sections[-1] += quote
-                elif highlight := Highlight().match(line):
-                    sections[-1] += highlight
-                elif math := Math().match(line):
-                    sections[-1] += math
-                elif image := Image().match(line):
-                    sections[-1] += image
-                elif linebreak := LineBreak().match(line):
-                    if sections:
-                        sections[-1] += linebreak
-                else:
-                    if sections:
-                        sections[-1] += line
+        for line in self.__file_lines():
+            if section := SectionHeading().match(line):
+                sections.append(section)
+            elif quote := Quote().match(line):
+                sections[-1] += quote
+            elif highlight := Highlight().match(line):
+                sections[-1] += highlight
+            elif math := Math().match(line):
+                sections[-1] += math
+            elif image := Image().match(line):
+                sections[-1] += image
+            elif linebreak := LineBreak().match(line):
+                if sections:
+                    sections[-1] += linebreak
+            else:
+                if sections:
+                    sections[-1] += line
         return sections
