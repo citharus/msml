@@ -20,8 +20,24 @@
 #  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #  SOFTWARE.
 
+from msml.elements import HTML
+from msml.parse import Parser
+
 
 class Formatter:
     def __init__(self, file_path: str, out_dir_name: str = 'out') -> None:
         self.file_path: str = file_path
         self.out_dir_name: str = out_dir_name
+
+    def __make_html(self) -> str:
+        parser: Parser = Parser(self.file_path)
+        page_heading, page_description = parser.get_info()
+        sections: list[str] = parser.get_sections()
+
+        return HTML.replace(
+            '{page_heading}',
+            page_heading,
+        ).replace(
+            '{sections}',
+            ''.join(sections)
+        )
