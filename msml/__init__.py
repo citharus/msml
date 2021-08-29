@@ -32,4 +32,4 @@ from collections import namedtuple
 from .format import *
 from .parse import *
 
-version_info = namedtuple('VersionInfo', 'major minor micro')(1, 0, 0)
+version_info = namedtuple('VersionInfo', 'major minor patch')(1, 0, 0)
