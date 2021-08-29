@@ -39,5 +39,5 @@ class Formatter:
             page_heading,
         ).replace(
             '{sections}',
-            ''.join(sections)
+            '\n'.join(sections)
         )
