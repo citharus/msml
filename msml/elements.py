@@ -27,8 +27,8 @@ __all__: list[str] = ['Quote', 'Highlight', 'Math', 'Image']
 
 
 class Element:
-    pattern: str = None
-    replacement: str = None
+    pattern: Optional[str] = None
+    replacement: Optional[str] = None
 
     @classmethod
     def __call__(cls, string: str) -> Optional[str]:
