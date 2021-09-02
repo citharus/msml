@@ -30,8 +30,8 @@ except ModuleNotFoundError:
 import pathlib
 from os import mkdir
 
+import msml.parse
 import msml.paths
-from msml.parse import Parser
 
 __all__: list[str] = ['Formatter']
 
@@ -51,7 +51,7 @@ class Formatter:
         )
 
     def format(self) -> str:
-        parser: Parser = Parser(self.file)
+        parser: msml.parse.Parser = msml.parse.Parser(self.file)
         page_heading, page_description = parser.get_info()
         sections: list[str] = parser.get_sections()
 
