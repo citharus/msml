@@ -30,6 +30,7 @@ except ModuleNotFoundError:
 import pathlib
 from os import mkdir
 
+import msml.paths
 from msml.parse import Parser
 
 __all__: list[str] = ['Formatter']
@@ -41,11 +42,13 @@ class Formatter:
             file: str,
             out_dir: str = 'out',
             *,
-            template: str = 'assets/template.html',
+            template: str = 'default',
     ) -> None:
         self.file: pathlib.Path = pathlib.Path(file)
         self.out_dir: pathlib.Path = pathlib.Path(out_dir)
-        self.template: pathlib.Path = pathlib.Path(template)
+        self.template: pathlib.Path = msml.paths.TEMPLATES.joinpath(
+            f'{template}.html',
+        )
 
     def format(self) -> str:
         parser: Parser = Parser(self.file)
