@@ -44,6 +44,7 @@ class Formatter:
             out_dir: str = 'out',
             *,
             template: str = 'default',
+            stylesheet: str = 'default',
     ) -> None:
         self.file: pathlib.Path = pathlib.Path(file)
         self.out_dir: pathlib.Path = pathlib.Path(out_dir)
@@ -53,6 +54,12 @@ class Formatter:
             ).open()
         except FileNotFoundError:
             raise Exception(f'Template file not found {template}.html')
+        try:
+            self.template: TextIO = msml.paths.STYLESHEETS.joinpath(
+                f'{stylesheet}.css',
+            ).open()
+        except FileNotFoundError:
+            raise Exception(f'Stylesheet not found: {stylesheet}.css')
 
     def format(self) -> str:
         parser: msml.parse.Parser = msml.parse.Parser(self.file)
