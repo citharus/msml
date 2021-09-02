@@ -31,8 +31,8 @@ import pathlib
 from os import mkdir
 from typing import TextIO
 
-import msml.parse
-import msml.paths
+import msml.parse as parse
+import msml.paths as paths
 
 __all__: list[str] = ['Formatter']
 
@@ -49,20 +49,20 @@ class Formatter:
         self.file: pathlib.Path = pathlib.Path(file)
         self.out_dir: pathlib.Path = pathlib.Path(out_dir)
         try:
-            self.template: TextIO = msml.paths.TEMPLATES.joinpath(
+            self.template: TextIO = paths.TEMPLATES.joinpath(
                 f'{template}.html',
             ).open()
         except FileNotFoundError:
             raise Exception(f'Template file not found {template}.html')
         try:
-            self.template: TextIO = msml.paths.STYLESHEETS.joinpath(
+            self.template: TextIO = paths.STYLESHEETS.joinpath(
                 f'{stylesheet}.css',
             ).open()
         except FileNotFoundError:
             raise Exception(f'Stylesheet not found: {stylesheet}.css')
 
     def format(self) -> str:
-        parser: msml.parse.Parser = msml.parse.Parser(self.file)
+        parser: parse.Parser = parse.Parser(self.file)
         page_heading, page_description = parser.get_info()
         sections: list[str] = parser.get_sections()
 
