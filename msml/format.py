@@ -55,7 +55,7 @@ class Formatter:
         except FileNotFoundError:
             raise Exception(f'Template file not found {template}.html')
         try:
-            self.template: TextIO = paths.STYLESHEETS.joinpath(
+            self.stylesheet: TextIO = paths.STYLESHEETS.joinpath(
                 f'{stylesheet}.css',
             ).open()
         except FileNotFoundError:
