@@ -25,11 +25,11 @@ __author__ = 'citharus'
 __license__ = 'MIT'
 __copyright__ = 'Copyright (c) 2021-present citharus'
 __link__ = 'https://github.com/citharus/msml'
-__version__ = 'v1.0.2'
+__version__ = 'v1.0.3'
 
 from collections import namedtuple
 
 from .format import *
 from .parse import *
 
-version_info = namedtuple('VersionInfo', 'major minor patch')(1, 0, 2)
+version_info = namedtuple('VersionInfo', 'major minor patch')(1, 0, 3)
