@@ -25,3 +25,4 @@ import pathlib
 LOCAL: pathlib.Path = pathlib.Path(f'~/.local/share/msml').expanduser()
 
 TEMPLATES: pathlib.Path = pathlib.Path(f'{LOCAL}/templates')
+STYLESHEETS: pathlib.Path = pathlib.Path(f'{LOCAL}/stylesheets')
