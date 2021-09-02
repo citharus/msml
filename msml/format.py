@@ -29,6 +29,7 @@ except ModuleNotFoundError:
 
 import pathlib
 from os import mkdir
+from typing import TextIO
 
 import msml.parse
 import msml.paths
@@ -46,16 +47,19 @@ class Formatter:
     ) -> None:
         self.file: pathlib.Path = pathlib.Path(file)
         self.out_dir: pathlib.Path = pathlib.Path(out_dir)
-        self.template: pathlib.Path = msml.paths.TEMPLATES.joinpath(
-            f'{template}.html',
-        )
+        try:
+            self.template: TextIO = msml.paths.TEMPLATES.joinpath(
+                f'{template}.html',
+            ).open()
+        except FileNotFoundError:
+            raise Exception(f'Template file not found {template}.html')
 
     def format(self) -> str:
         parser: msml.parse.Parser = msml.parse.Parser(self.file)
         page_heading, page_description = parser.get_info()
         sections: list[str] = parser.get_sections()
 
-        with self.template.open('r') as template:
+        with self.template as template:
             html: str = template.read()
             html = html.replace('{page_heading}', page_heading)
             html = html.replace('{sections}', '\n'.join(sections))
