@@ -36,9 +36,16 @@ __all__: list[str] = ['Formatter']
 
 
 class Formatter:
-    def __init__(self, file: str, out_dir: str = 'out') -> None:
+    def __init__(
+            self,
+            file: str,
+            out_dir: str = 'out',
+            *,
+            template: str = 'assets/template.html',
+    ) -> None:
         self.file: pathlib.Path = pathlib.Path(file)
         self.out_dir: pathlib.Path = pathlib.Path(out_dir)
+        self.template: pathlib.Path = pathlib.Path(template)
 
     def format(self) -> str:
         parser: Parser = Parser(self.file)
