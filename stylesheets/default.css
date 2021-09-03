@@ -1,3 +1,7 @@
+:root {
+    --heading-color: #2E3440;
+}
+
 * {
     margin: 0;
     padding: 0;
