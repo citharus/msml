@@ -4,3 +4,10 @@
     box-sizing: border-box;
     font-size: 18px;
 }
+
+h1 {
+    margin: 0 2rem 2rem;
+    padding-bottom: .25rem;
+    border-bottom: #2E3440 solid 2px;
+    font-size: 3rem;
+}
