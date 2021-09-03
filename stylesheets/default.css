@@ -20,3 +20,10 @@ h2 {
 section {
     margin: 0 2rem;
 }
+
+blockquote {
+    padding: 1rem;
+    margin: 1rem;
+    background: gray;
+    font-style: italic;
+}
