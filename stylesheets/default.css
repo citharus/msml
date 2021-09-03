@@ -11,3 +11,8 @@ h1 {
     border-bottom: #2E3440 solid 2px;
     font-size: 3rem;
 }
+
+h2 {
+    margin: 1rem 0 .25rem;
+    font-size: 2rem;
+}
