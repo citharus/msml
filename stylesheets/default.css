@@ -8,7 +8,7 @@
 h1 {
     margin: 0 2rem 2rem;
     padding-bottom: .25rem;
-    border-bottom: #2E3440 solid 2px;
+    border-bottom: gray solid 2px;
     font-size: 3rem;
 }
 
@@ -26,4 +26,9 @@ blockquote {
     margin: 1rem;
     background: gray;
     font-style: italic;
+}
+
+blockquote.math {
+    background-color: white;
+    text-align: center;
 }
