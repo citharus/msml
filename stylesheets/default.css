@@ -36,7 +36,7 @@ blockquote {
 }
 
 blockquote.math {
-    background-color: white;
+    background: var(--math-color);
     text-align: center;
 }
 
