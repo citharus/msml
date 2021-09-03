@@ -15,7 +15,7 @@
 h1 {
     margin: 0 2rem 2rem;
     padding-bottom: .25rem;
-    border-bottom: gray solid 2px;
+    border-bottom: var(--heading-border-color) solid 2px;
     font-size: 3rem;
 }
 
