@@ -29,7 +29,6 @@ except ModuleNotFoundError:
 
 import pathlib
 from os import mkdir
-from typing import TextIO
 
 import msml.parse as parse
 import msml.paths as paths
@@ -48,30 +47,24 @@ class Formatter:
     ) -> None:
         self.file: pathlib.Path = pathlib.Path(file)
         self.out_dir: pathlib.Path = pathlib.Path(out_dir)
-        try:
-            self.template: TextIO = paths.TEMPLATES.joinpath(
-                f'{template}.html',
-            ).open()
-        except FileNotFoundError:
-            raise Exception(f'Template file not found {template}.html')
-        try:
-            self.stylesheet: TextIO = paths.STYLESHEETS.joinpath(
-                f'{stylesheet}.css',
-            ).open()
-        except FileNotFoundError:
-            raise Exception(f'Stylesheet not found: {stylesheet}.css')
+        self.template: pathlib.Path = paths.TEMPLATES.joinpath(
+            f'{template}.html',
+        )
+        self.stylesheet: pathlib.Path = paths.STYLESHEETS.joinpath(
+            f'{stylesheet}.css',
+        )
 
     def format(self) -> str:
         parser: parse.Parser = parse.Parser(self.file)
         page_heading, page_description = parser.get_info()
         sections: list[str] = parser.get_sections()
 
-        with self.template as template:
+        with self.template.open() as template:
             html: str = template.read()
             html = html.replace('{page_heading}', page_heading)
             html = html.replace('{sections}', '\n'.join(sections))
 
-            with self.stylesheet as stylesheet:
+            with self.stylesheet.open() as stylesheet:
                 html = html.replace('{stylesheet}', stylesheet.read())
 
         if bs4:
