@@ -22,6 +22,8 @@
 
 import pathlib
 
+__all__: list[str] = ['TEMPLATES', 'STYLESHEETS']
+
 LOCAL: pathlib.Path = pathlib.Path(f'~/.local/share/msml').expanduser()
 
 TEMPLATES: pathlib.Path = pathlib.Path(f'{LOCAL}/templates')
