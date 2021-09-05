@@ -80,10 +80,14 @@ class Formatter:
             css=self.stylesheet,
         )
 
-    def write(self):
+    def write(self, _type: str) -> None:
         if not self.out_dir.exists():
             mkdir(str(self.out_dir))
 
-        with open(f'{self.out_dir}/{self.file.name}.html', 'w') as outfile:
-            html: str = self.make_html()
-            outfile.write(html)
+        if _type not in ['pdf', 'html']:
+            return None
+
+        with open(f'{self.out_dir}/{self.file.name}.{_type}', 'w') as outfile:
+            if _type is 'pdf':
+                outfile.write(self.make_pdf())
+            outfile.write(self.make_html())
