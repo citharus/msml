@@ -54,7 +54,7 @@ class Formatter:
             f'{stylesheet}.css',
         )
 
-    def format(self) -> str:
+    def make_html(self) -> str:
         parser: parse.Parser = parse.Parser(self.file)
         page_heading, page_description = parser.get_info()
         sections: list[str] = parser.get_sections()
@@ -76,5 +76,5 @@ class Formatter:
             mkdir(str(self.out_dir))
 
         with open(f'{self.out_dir}/{self.file.name}.html', 'w') as outfile:
-            html: str = self.format()
+            html: str = self.make_html()
             outfile.write(html)
