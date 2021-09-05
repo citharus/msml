@@ -30,6 +30,8 @@ except ModuleNotFoundError:
 import pathlib
 from os import mkdir
 
+import pdfkit
+
 import msml.parse as parse
 import msml.paths as paths
 
@@ -70,6 +72,13 @@ class Formatter:
         if bs4:
             return BeautifulSoup(html, features='html.parser').prettify()
         return html
+
+    def make_pdf(self) -> str:
+        return pdfkit.from_string(
+            input=self.make_html(),
+            output_path=False,
+            css=self.stylesheet,
+        )
 
     def write(self):
         if not self.out_dir.exists():
