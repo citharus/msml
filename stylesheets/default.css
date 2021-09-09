@@ -1,5 +1,6 @@
 :root {
     --font-color: #2E3440;
+    --background-color: white;
     --heading-border-color: #2E3440;
     --quote-color: #ECEFF4;
     --math-color: white;
@@ -11,7 +12,7 @@
     box-sizing: border-box;
     font-size: 18px;
     color: var(--font-color);
-    background: white;
+    background: var(--background-color);
 }
 
 h1 {
