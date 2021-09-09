@@ -73,7 +73,7 @@ class Formatter:
             return BeautifulSoup(html, features='html.parser').prettify()
         return html
 
-    def make_pdf(self) -> str:
+    def make_pdf(self) -> bytes:
         return pdfkit.from_string(
             input=self.make_html(),
             output_path=False,
