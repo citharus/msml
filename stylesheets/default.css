@@ -45,4 +45,5 @@ blockquote.math {
 img {
     display: block;
     margin: 2rem auto;
+    max-height: 300px;
 }
