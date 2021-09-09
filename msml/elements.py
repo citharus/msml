@@ -76,7 +76,7 @@ class Math(Element):
 
 
 class Image(Element):
-    pattern: str = r'(?:#img\s*)([/\w]+\.(?:png|jpg|gif))'
+    pattern: str = r'(?:#img\s*)([ /\-\w]+\.(?:png|jpg|gif))'
     replacement: str = '<img src="{content}">'
 
 
