@@ -92,6 +92,6 @@ class Formatter:
             return None
 
         with open(f'{self.out_dir}/{self.file.name}.{_type}', 'wb') as outfile:
-            if _type is 'pdf':
+            if _type == 'pdf':
                 outfile.write(self.make_pdf())
             outfile.write(self.make_html().encode())
