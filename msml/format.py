@@ -91,7 +91,7 @@ class Formatter:
         if _type not in ['pdf', 'html']:
             return None
 
-        with open(f'{self.out_dir}/{self.file.name}.{_type}', 'w') as outfile:
+        with open(f'{self.out_dir}/{self.file.name}.{_type}', 'wb') as outfile:
             if _type is 'pdf':
                 outfile.write(self.make_pdf())
             outfile.write(self.make_html())
