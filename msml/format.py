@@ -77,6 +77,10 @@ class Formatter:
         return pdfkit.from_string(
             input=self.make_html(),
             output_path=False,
+            options={
+                'enable-local-file-access': False,
+                'encoding': 'utf-8',
+            },
             css=self.stylesheet,
         )
 
