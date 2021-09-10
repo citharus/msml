@@ -43,6 +43,12 @@ blockquote.math {
     text-align: center;
 }
 
+q {
+    padding: .1rem;
+    background: var(--quote-color);
+    quotes: "";
+}
+
 img {
     display: block;
     margin: 2rem auto;
