@@ -31,6 +31,10 @@ section {
     margin: 0 2rem;
 }
 
+section:not(:first-of-type) {
+    margin-top: 2.5rem;
+}
+
 blockquote {
     padding: 1rem;
     margin: 1rem;
