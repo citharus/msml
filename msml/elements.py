@@ -47,26 +47,26 @@ class Element:
 
 
 class PageHeading(Element):
-    pattern: str = r'(?:#hp\s*)([\w.]+(?: +[\w.]+)*)'
+    pattern: str = r'(?:#hp\s*)([\w.?!]+(?: +[\w.?!]+)*)'
     replacement: str = '<h1>{content}</h1>'
 
 
 class PageDescription(Element):
-    pattern: str = r'(?:#d\s*)([\w.]+(?: +[\w.]+)*)'
+    pattern: str = r'(?:#d\s*)([\w.?!]+(?: +[\w.?!]+)*)'
 
 
 class SectionHeading(Element):
-    pattern: str = r'(?:#hs\s*)([\w.]+(?: +[\w.]+)*)'
+    pattern: str = r'(?:#hs\s*)([\w.?!]+(?: +[\w.?!]+)*)'
     replacement: str = '<h2>{content}</h2>'
 
 
 class Quote(Element):
-    pattern: str = r'(?:#q\s*)([\w.]+(?: +[\w.]+)*)'
+    pattern: str = r'(?:#q\s*)([\w.?!]+(?: +[\w.?!]+)*)'
     replacement: str = '<blockquote>{content}</blockquote>'
 
 
 class Highlight(Element):
-    pattern: str = r'(?:#hl\s*)([\w.]+(?: +[\w.]+)*)(?:\s*hl#)'
+    pattern: str = r'(?:#hl\s*)([\w.?!]+(?: +[\w.?!]+)*)(?:\s*hl#)'
     replacement: str = '<q>{content}</q>'
 
 
