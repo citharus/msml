@@ -34,6 +34,8 @@ __all__: list[str] = [
     'LineBreak',
 ]
 
+text: str = '([\w.?!]+(?: +[\w.?!]+)*)'
+
 
 class Element:
     pattern: Optional[str] = None
@@ -47,26 +49,26 @@ class Element:
 
 
 class PageHeading(Element):
-    pattern: str = r'(?:#hp\s*)([\w.?!]+(?: +[\w.?!]+)*)'
+    pattern: str = rf'(?:#hp\s*){text}'
     replacement: str = '<h1>{content}</h1>'
 
 
 class PageDescription(Element):
-    pattern: str = r'(?:#d\s*)([\w.?!]+(?: +[\w.?!]+)*)'
+    pattern: str = rf'(?:#d\s*){text}'
 
 
 class SectionHeading(Element):
-    pattern: str = r'(?:#hs\s*)([\w.?!]+(?: +[\w.?!]+)*)'
+    pattern: str = rf'(?:#hs\s*){text}'
     replacement: str = '<h2>{content}</h2>'
 
 
 class Quote(Element):
-    pattern: str = r'(?:#q\s*)([\w.?!]+(?: +[\w.?!]+)*)'
+    pattern: str = rf'(?:#q\s*){text}'
     replacement: str = '<blockquote>{content}</blockquote>'
 
 
 class Highlight(Element):
-    pattern: str = r'(?:#hl\s*)([\w.?!]+(?: +[\w.?!]+)*)(?:\s*hl#)'
+    pattern: str = rf'(?:#hl\s*){text}(?:\s*hl#)'
     replacement: str = '<q>{content}</q>'
 
 
