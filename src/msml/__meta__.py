@@ -20,6 +20,8 @@
 #  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #  SOFTWARE.
 
+__all__: list = ['__version__']
+
 
 def _get_version(raw_version: tuple) -> str:
     length: int = 3 if raw_version[2] else 2
