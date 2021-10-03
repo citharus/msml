@@ -4,8 +4,6 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-beautifulsoup4 = "*"
-pdfkit = "*"
 
 [requires]
 python_version = "3.9"
