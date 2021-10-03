@@ -22,6 +22,8 @@
 
 __all__: list = ['__version__']
 
+__raw_version__: tuple = (1, 0, 4, 'dev', 0)
+
 
 def _get_version(raw_version: tuple) -> str:
     length: int = 3 if raw_version[2] else 2
@@ -34,5 +36,4 @@ def _get_version(raw_version: tuple) -> str:
     return version
 
 
-__raw_version__: tuple = (1, 0, 4, 'dev', 0)
 __version__: str = _get_version(__raw_version__)
